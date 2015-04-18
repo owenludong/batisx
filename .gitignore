@@ -1,8 +1,8 @@
 /target
 /.settings
-/.idea
-/.classpath
-/.project
+.idea
+.classpath
+.project
 *.iml
 *.log
 git-m
