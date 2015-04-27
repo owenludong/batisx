@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author owenludong.lud
- * @version $Id: DataBaseMetaReposity, v 0.1  2015/4/27 16:11  owenludong.lud Exp $$
+ * @version $Id: DatabaseMetaReposity, v 0.1  2015/4/27 16:11  owenludong.lud Exp $$
  */
 public class DataBaseMetaReposity {
 
