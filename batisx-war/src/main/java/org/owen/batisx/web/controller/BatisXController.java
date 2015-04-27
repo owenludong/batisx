@@ -1,5 +1,5 @@
 /**
- * Alipay.com Inc.
+ * owen.org Inc.
  * Copyright (c) 2004-2015 All Rights Reserved.
  */
 package org.owen.batisx.web.controller;
@@ -19,5 +19,12 @@ public class BatisXController {
     @ResponseBody
     public String test() {
         return "hello world";
+    }
+
+    @RequestMapping("connDb.htm")
+    @ResponseBody
+    public String connDb(String dbUrl,String username,String password) {
+        //return "dbUrl["+dbUrl+"],username ["+username+"],password ["+password+"] connect success";
+        return null;
     }
 }

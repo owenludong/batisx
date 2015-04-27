@@ -143,19 +143,26 @@
                     <h4 class="modal-title" id="myModalLabel">new database connect.</h4>
                   </div>
                   <div class="modal-body">
-                    <form class="form-horizontal" id="validation-form" method="get" action=''>
+                    <form class="form-horizontal" id="validation-form" method="post" action="connDb.htm">
                         <div class="form-group">
-                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">Email Address:</label>
+                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="dbUrl">Db url:</label>
 
                             <div class="col-xs-12 col-sm-9">
                                 <div class="clearfix">
-                                    <input type="email" name="email" id="email" class="col-xs-12 col-sm-6" />
+                                    <input type="dbUrl" name="dbUrl" id="dbUrl" class="col-xs-12 col-sm-6" />
                                 </div>
                             </div>
                         </div>
 
-                        <div class="space-2"></div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="username">UserName:</label>
 
+                            <div class="col-xs-12 col-sm-9">
+                                <div class="clearfix">
+                                    <input type="username" name="username" id="username" class="col-xs-12 col-sm-4" />
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="password">Password:</label>
@@ -163,18 +170,6 @@
                             <div class="col-xs-12 col-sm-9">
                                 <div class="clearfix">
                                     <input type="password" name="password" id="password" class="col-xs-12 col-sm-4" />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="space-2"></div>
-
-                        <div class="form-group">
-                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="password2">Confirm Password:</label>
-
-                            <div class="col-xs-12 col-sm-9">
-                                <div class="clearfix">
-                                    <input type="password" name="password2" id="password2" class="col-xs-12 col-sm-4" />
                                 </div>
                             </div>
                         </div>
@@ -204,29 +199,25 @@
             errorClass: 'help-block',
             focusInvalid: false,
             rules: {
-                email: {
-                    required: true,
-                    email:true
+                dbUrl: {
+                    required: true
+                },
+                username: {
+                    required: true
                 },
                 password: {
-                    required: true,
-                    minlength: 5
-                },
-                password2: {
-                    required: true,
-                    minlength: 5,
-                    equalTo: "#password"
+                    required: true
                 }
             },
-
             messages: {
-                email: {
-                    required: "Please provide a valid email.",
-                    email: "Please provide a valid email."
+                dbUrl: {
+                    required: "Please provide a url."
                 },
                 password: {
-                    required: "Please specify a password.",
-                    minlength: "Please specify a secure password."
+                    required: "Please provide a password."
+                },
+                username: {
+                    required: "Please provide a username."
                 }
             },
 
@@ -255,7 +246,7 @@
             },
 
             submitHandler: function (form) {
-            form.submit();
+                form.submit();
             },
             invalidHandler: function (form) {
             }

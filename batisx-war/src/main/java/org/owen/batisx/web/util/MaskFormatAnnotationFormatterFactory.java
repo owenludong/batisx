@@ -1,3 +1,7 @@
+/**
+ * owen.org Inc.
+ * Copyright (c) 2004-2015 All Rights Reserved.
+ */
 package org.owen.batisx.web.util;
 
 import org.springframework.format.AnnotationFormatterFactory;
