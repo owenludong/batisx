@@ -8,6 +8,7 @@ import org.apache.commons.lang.StringUtils;
 import org.owen.batisx.common.database.DataBaseMetaReposity;
 import org.owen.batisx.entity.*;
 import org.owen.batisx.service.BatisXService;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.List;
  * @author owenludong.lud
  * @version $Id: BatisXServiceImpl, v 0.1  2015/4/27 14:15  owenludong.lud Exp $$
  */
+@Service
 public class BatisXServiceImpl implements BatisXService {
 
     @Override

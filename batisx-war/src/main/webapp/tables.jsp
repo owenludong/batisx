@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
+<%@ page isELIgnored="false" %>
 <%@include file="common/header.jsp" %>
 <%@include file="common/leftMenu.jsp" %>
 <div class="main-content">
@@ -35,7 +36,7 @@
                                             <span class="lbl"></span>
                                         </label>
                                     </th>
-                                    <th>Domain</th>
+                                    <th>tableName</th>
                                     <th>Price</th>
                                     <th class="hidden-480">Clicks</th>
 
@@ -50,80 +51,89 @@
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td class="center">
-                                        <label>
-                                            <input type="checkbox" class="ace" />
-                                            <span class="lbl"></span>
-                                        </label>
-                                    </td>
+                               <c:choose>
+                                   <c:when test="${empty failMsg}">
 
-                                    <td>
-                                        <a href="#">ace.com</a>
-                                    </td>
-                                    <td>$45</td>
-                                    <td class="hidden-480">3,330</td>
-                                    <td>Feb 12</td>
+                                       <c:forEach var="table" items="${database.tables}">
+                                            <tr>
+                                                <td class="center">
+                                                    <label>
+                                                        <input type="checkbox" class="ace" />
+                                                        <span class="lbl"></span>
+                                                    </label>
+                                                </td>
 
-                                    <td class="hidden-480">
-                                        <span class="label label-sm label-warning">Expiring</span>
-                                    </td>
+                                                <td>
+                                                    <a href="#">${table.tableName}</a>
+                                                </td>
+                                                <td>$45</td>
+                                                <td class="hidden-480">3,330</td>
+                                                <td>Feb 12</td>
 
-                                    <td>
-                                        <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
-                                            <button class="btn btn-xs btn-success">
-                                                <i class="icon-ok bigger-120"></i>
-                                            </button>
+                                                <td class="hidden-480">
+                                                    <span class="label label-sm label-warning">Expiring</span>
+                                                </td>
 
-                                            <button class="btn btn-xs btn-info">
-                                                <i class="icon-edit bigger-120"></i>
-                                            </button>
+                                                <td>
+                                                    <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
+                                                        <button class="btn btn-xs btn-success">
+                                                            <i class="icon-ok bigger-120"></i>
+                                                        </button>
 
-                                            <button class="btn btn-xs btn-danger">
-                                                <i class="icon-trash bigger-120"></i>
-                                            </button>
+                                                        <button class="btn btn-xs btn-info">
+                                                            <i class="icon-edit bigger-120"></i>
+                                                        </button>
 
-                                            <button class="btn btn-xs btn-warning">
-                                                <i class="icon-flag bigger-120"></i>
-                                            </button>
-                                        </div>
+                                                        <button class="btn btn-xs btn-danger">
+                                                            <i class="icon-trash bigger-120"></i>
+                                                        </button>
 
-                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
-                                            <div class="inline position-relative">
-                                                <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
-                                                    <i class="icon-cog icon-only bigger-110"></i>
-                                                </button>
+                                                        <button class="btn btn-xs btn-warning">
+                                                            <i class="icon-flag bigger-120"></i>
+                                                        </button>
+                                                    </div>
 
-                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
-                                                    <li>
-                                                        <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-                                                            <span class="blue">
-                                                                <i class="icon-zoom-in bigger-120"></i>
-                                                            </span>
-                                                        </a>
-                                                    </li>
+                                                    <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                        <div class="inline position-relative">
+                                                            <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                                <i class="icon-cog icon-only bigger-110"></i>
+                                                            </button>
 
-                                                    <li>
-                                                        <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-                                                            <span class="green">
-                                                                <i class="icon-edit bigger-120"></i>
-                                                            </span>
-                                                        </a>
-                                                    </li>
+                                                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                <li>
+                                                                    <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
+                                                                        <span class="blue">
+                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
 
-                                                    <li>
-                                                        <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-                                                            <span class="red">
-                                                                <i class="icon-trash bigger-120"></i>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                                                <li>
+                                                                    <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                                        <span class="green">
+                                                                            <i class="icon-edit bigger-120"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
 
+                                                                <li>
+                                                                    <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+                                                                        <span class="red">
+                                                                            <i class="icon-trash bigger-120"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                       </c:forEach>
+                                   </c:when>
+                                   <c:otherwise>
+                                       <font color='red'>${failMsg}</font>
+                                   </c:otherwise>
+                               </c:choose>
                             </tbody>
                         </table>
                     </div><!-- /.table-responsive -->
